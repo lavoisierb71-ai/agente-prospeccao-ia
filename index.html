@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Agente Prospecção IA</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #17202a;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    header p {
+      margin-top: 6px;
+      color: #cbd5e1;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      color: #64748b;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .card strong {
+      font-size: 28px;
+    }
+
+    .agent {
+      background: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    .agent h2 {
+      margin-bottom: 10px;
+    }
+
+    .agent p {
+      color: #64748b;
+      margin-bottom: 15px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 15px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      resize: vertical;
+      font-size: 15px;
+    }
+
+    button {
+      margin-top: 12px;
+      padding: 13px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #2563eb;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .empresas {
+      background: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .empresa {
+      padding: 15px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .empresa:last-child {
+      border-bottom: none;
+    }
+
+    .empresa strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #dcfce7;
+      color: #166534;
+      font-size: 12px;
+    }
+
+    #resposta {
+      margin-top: 15px;
+      padding: 15px;
+      background: #f1f5f9;
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🤖 Agente Prospecção IA</h1>
+  <p>Central inteligente de prospecção para construção civil pesada</p>
+</header>
+
+<div class="container">
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Empresas</h3>
+      <strong>0</strong>
+    </div>
+
+    <div class="card">
+      <h3>Propostas</h3>
+      <strong>0</strong>
+    </div>
+
+    <div class="card">
+      <h3>Follow-ups</h3>
+      <strong>0</strong>
+    </div>
+
+    <div class="card">
+      <h3>Respostas</h3>
+      <strong>0</strong>
+    </div>
+
+  </div>
+
+  <div class="agent">
+
+    <h2>🤖 Fale com o Agente</h2>
+
+    <p>
+      Digite uma tarefa para o agente de prospecção.
+    </p>
+
+    <textarea id="comando"
+      placeholder="Ex: Encontre empresas de construção pesada em Goiás"></textarea>
+
+    <button onclick="executarAgente()">
+      Executar agente
+    </button>
+
+    <div id="resposta"></div>
+
+  </div>
+
+  <div class="empresas">
+
+    <h2>🏗️ Empresas prospectadas</h2>
+
+    <div class="empresa">
+      <strong>Nenhuma empresa cadastrada</strong>
+      Comece adicionando empresas ao sistema.
+      <span class="status">Aguardando dados</span>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+function executarAgente() {
+
+  const comando = document.getElementById("comando").value;
+  const resposta = document.getElementById("resposta");
+
+  if (!comando.trim()) {
+    alert("Digite um comando para o agente.");
+    return;
+  }
+
+  resposta.style.display = "block";
+
+  resposta.innerHTML =
+    "<strong>🤖 Agente:</strong><br><br>" +
+    "Recebi seu comando:<br><br>" +
+    "<em>" + comando + "</em><br><br>" +
+    "⚙️ A conexão com a inteligência artificial será adicionada na próxima etapa.";
+
+}
+
+</script>
+
+</body>
+</html>
